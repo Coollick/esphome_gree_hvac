@@ -370,7 +370,7 @@ void GreeClimate::control(const climate::ClimateCall &call) {
 
 void GreeClimate::send_data_(const uint8_t *message, uint8_t size) {
   this->write_array(message, size);
-  dump_message_("Sent message", message, size);
+  // dump_message_("Sent message", message, size);
 }
 
 void GreeClimate::dump_message_(const char *title, const uint8_t *message, uint8_t size) {
