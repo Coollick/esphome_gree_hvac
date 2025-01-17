@@ -374,14 +374,14 @@ void GreeClimate::send_data_(const uint8_t *message, uint8_t size) {
 }
 
 void GreeClimate::dump_message_(const char *title, const uint8_t *message, uint8_t size) {
-  ESP_LOGV(TAG, "%s:", title);
+  // ESP_LOGV(TAG, "%s:", title);
   char str[250] = {0};
   char *pstr = str;
-  if (size * 2 > sizeof(str)) ESP_LOGE(TAG, "too long byte data");
+  if (size * 2 > sizeof(str)) ESP_LOGE(TAG, "%s: too long byte data", title);
   for (int i = 0; i < size; i++) {
     pstr += sprintf(pstr, "%02X ", message[i]);
   }
-  ESP_LOGV(TAG, "%s", str);
+  ESP_LOGV(TAG, "%s: %s", title, str);
 }
 
 uint8_t GreeClimate::get_checksum_(const uint8_t *message, size_t size) {
